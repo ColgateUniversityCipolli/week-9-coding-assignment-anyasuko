@@ -51,7 +51,7 @@ which \texttt{R} cannot differentiate from 0.
       return(ifelse(neg, -loglik, loglik))
       }
 
-    (mles.gamma <- optim(par = c(1,1),    ##how do I know what to guess here?
+    (mles.gamma <- optim(par = c(1,1),    ## how do I know what to guess here?
              fn = llgamma,
              data=dat.wind$speed,      #### WHAT DATA SHOULD I PUT IN????
              neg=T))
@@ -69,7 +69,7 @@ which \texttt{R} cannot differentiate from 0.
       return(ifelse(neg, -loglik, loglik))
       }
     
-    (mles.ll <- optim(par = c(0,1),  ##how do I know what to guess here?
+    (mles.ll <- optim(par = c(0,1),  ## how do I know what to guess here?
                    fn = ll_lognorm,
                    data = dat.wind$speed,  #### WHAT DATA SHOULD I PUT IN????
                    neg = TRUE))
@@ -82,7 +82,7 @@ which \texttt{R} cannot differentiate from 0.
     \[Q = \frac{L(\{\hat{a}, \hat{\sigma}\}|\mathbf{x})}{L(\{\hat{\alpha}, \hat{\beta}\}|\mathbf{x})}=e^{\left[\mathcal{L}(\{\hat{a}, \hat{\sigma}\}|\mathbf{x}) - \mathcal{L}(\{\hat{\alpha}, \hat{\beta}\}|\mathbf{x})\right]}\]
     <<>>=
     # likelihood weibull / likelihood gamma
-    loglikely.gamma <- -mles.gamma$value
+    loglikely.gamma <- mles.gamma$value
     gamma.weibull.ratio <- 2166.496/ loglikely.gamma
     
     # explain what this means!!
@@ -93,7 +93,7 @@ which \texttt{R} cannot differentiate from 0.
     \[Q = \frac{L(\{\hat{a}, \hat{\sigma}\}|\mathbf{x})}{L(\{\hat{\mu}, \hat{\sigma}\}|\mathbf{x})}=e^{\left[\mathcal{L}(\{\hat{a}, \hat{\sigma}\}|\mathbf{x}) - \mathcal{L}(\{\hat{\mu}, \hat{\sigma}\}|\mathbf{x})\right]}\]
     <<>>=
     # likelihood weibull/ likelihood lognormal
-    loglikely.ll <- -mles.ll$value
+    loglikely.ll <- mles.ll$value
     lognormal.weibull.ratio <- 2166.496/ loglikely.ll
     
     # explain what this means!!
